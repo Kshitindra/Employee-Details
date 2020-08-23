@@ -4,34 +4,34 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <link href="Style.css" rel="stylesheet">
 
-<title>Employees Details</title>
+<title>Employee Records</title>
 </head>
-<h2>Hello User!</h2>
-<body>
+<h2>Employee Records</h2>
+<body></body>
 <script>
 var myApp  =angular.module("myModule",[])
 .controller("myController",function($scope){
 
 var employees=
 [
-{ firstName:"Adam", dateOfBirth: new Date("November 23, 1986"), gender: "Male", salary: 55000.788, city:"Ajmer" }, 
-{ firstName:"Ben", dateOfBirth: new Date("May 26, 1970"), gender: "Male", salary: 45999.018,city:"Jaipur"  }, 
-{ firstName:"Sara", dateOfBirth: new Date("January 31, 1985"), gender: "Female", salary: 55111.255,city:"New Delhi"  }, 
+{ firstName:"Akshay", dateOfBirth: new Date("November 23, 1986"), gender: "Male", salary: 55000.788, city:"Ajmer" }, 
+{ firstName:"Akshita", dateOfBirth: new Date("May 26, 1970"), gender: "Female", salary: 45999.018,city:"Jaipur"  }, 
+{ firstName:"Deepak", dateOfBirth: new Date("January 31, 1985"), gender: "Male", salary: 55111.255,city:"New Delhi"  }, 
 { firstName:"Yash",dateOfBirth: new Date("December 23, 1989"), gender: "Male", salary: 45889.123,city:"Hyderabad"  }, 
-{ firstName:"Amita", dateOfBirth: new Date("October 29, 2000"), gender: "Female", salary: 12345.009,city:"Mumbai"  },
-{ firstName:"Zara", dateOfBirth: new Date("April 19, 2003"), gender: "Female", salary: 54321.098,city:"Pune"  },
+{ firstName:"Sreenivas", dateOfBirth: new Date("October 29, 2000"), gender: "Male", salary: 12345.009,city:"Mumbai"  },
+{ firstName:"Sradha", dateOfBirth: new Date("April 19, 2003"), gender: "Female", salary: 54321.098,city:"Pune"  },
 { firstName:"Namit", dateOfBirth: new Date("October 15, 1999"), gender: "Male", salary: 12365.099,city:"Chennai"  },
 { firstName:"Virat", dateOfBirth: new Date("July 29, 1987"), gender: "Male", salary: 54678.003 ,city:"Ajmer" },
 { firstName:"Lakshya", dateOfBirth: new Date("June 22, 2002"), gender: "Male", salary: 65432.022 ,city:"Hyderabad" },
 { firstName:"Mohita", dateOfBirth: new Date("February 19, 2000"), gender: "Female", salary: 12354.007 ,city:"Bangalore" },
-{ firstName:"Rahul", dateOfBirth: new Date("March 24, 2001"), gender: "Male", salary: 32145.045,city:"Ooty"  },
+{ firstName:"Mohan", dateOfBirth: new Date("March 24, 2001"), gender: "Male", salary: 32145.045,city:"Chennai"  },
 { firstName:"Charu", dateOfBirth: new Date("May 18, 2004"), gender: "Female", salary: 12378.099 ,city:"Chennai" },
-{ firstName:"Danish", dateOfBirth: new Date("October 29, 2000"), gender: "Male", salary: 33345.045,city:"New Delhi"  }
+{ firstName:"Deepsikha", dateOfBirth: new Date("October 29, 2000"), gender: "Male", salary: 33345.045,city:"New Delhi"  }
 
 ];
 $scope.employees=employees;
-$scope.message="Employee Manager";
-$scope.rowLimit=3;
+$scope.message="Stanome";
+$scope.rowLimit=13; 
 
 $scope.reversesort=false;
 $scope.sortData= function(column)
@@ -65,32 +65,20 @@ return false;
 });
 </script>
 <div data-ng-app="myModule" data-ng-controller="myController">
-<h6>Two way datbinding property in Angular JS.As the model updates, the view automatically updates.Change the text in the textbox below and the written text below also changes automatically.</h6>
- <input type="text" data-ng-model="message"/>
- 
- <br   /><br   />
- {{message}}
- <br    /><br   />
- <h6>Choose an option to sort the employee table (ASC is for Ascending order and DESC is for Descending order) from the drop-down menu below.</h6>
-Sort By:<select data-ng-model="sortColumn">
+ Sort By:<select data-ng-model="sortColumn">
 <option value="firstName">Name ASC</option>
 <option value="gender">Gender ASC</option>
 <option value="dateOfBirth">Date Of Birth ASC</option>
 <option value="-firstName">Names DESC</option>
 </select>
- <br   /><br   />
- <h6>Choose an option to search Employees from the employee table.You can search Employees by name or by city.
- Check/Tick the checkbox if you want to saerch by Exact Match</h6> 
 Search : <input type="text" placeholder="Employees-byName" data-ng-model="searchText.firstName" />
 <input type="text" placeholder="Employees-byCity" data-ng-model="searchText.city" />
 <input type="checkbox" data-ng-model="exactMatch"/>Exact Match
 
 <br    /><br    />
-<h6>Check/Tick the checkbox below if you want to hide the salary of all employees of employee table and to show uncheck/untick it.</h6>
- <input type="checkbox" data-ng-model="hideSalary" />Hide Salary
+<input type="checkbox" data-ng-model="hideSalary" />Hide Salary
 <br   /><br   />
 
-<h6>See the table below.You can select how many rows of the table you want to display by setting value in Rows to Display box (default value is setted as 3 and max value is 13 as we have 13 rows in our employee table)and more used filters here are Name is in uppercase,date of birth in dd/mm/yyyy format,gender in lowercase and salary in numer format till 2 decimal places.No filter is used on city.</h6>
 Rows to Display:<input type="number" step="1" min="0" max="13" data-ng-model="rowLimit"/>
 <br    /><br   />
 <table>
